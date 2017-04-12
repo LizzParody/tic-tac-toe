@@ -1,25 +1,28 @@
-function startGame() {
-  for(var i = 1; i <= 9; i = i + 1){
+window.onload = init;
+
+function init() {
+  var td = document.getElementsByTagName("td");
+  for(var i = 1; i < td.length; i++){
     clearBox(i);
   }
-  document.turn = "X"; //because is a html document
+  document.turn = "X"; //The turn of the player
   if(Math.random()< 0.5){
     document.turn = "O";
   }
-  document.winner = null; //document.winner a variable to determine who's won the game, null means that nothing is there
+  document.winner = null; //a variable to determine who's won the game
 
-  setMessage("- " + document.turn + " gets to start -");//the x is going to start now
+  setMessage("- " + document.turn + " gets to start -");
 }
 
-function setMessage(msg) { //variable call msg
-  document.getElementById("message").innerText = msg;//give me he element by the id "message" and set the text to whatever I put in msg
+function setMessage(msg) {
+  document.getElementById("message").innerHTML = msg;
 }
 
 function nextMove(square) {
   if(document.winner != null){ //if document.winner is not null, this person already won the game
     setMessage(document.winner + " already won the game");
-  } else if(square.innerText == ""){ //if what's on the inner text is empty, make the next move, if it's not empty throw the message
-  square.innerText = document.turn;
+  } else if(square.innerHTML == ""){ //if what's on the inner text is empty, make the next move, if it's not empty throw the message
+  square.innerHTML = document.turn;
   switchTurn();
 } else {
   setMessage("That square is already used.")
@@ -64,9 +67,9 @@ function checkRow(a, b, c, move) {//it's going to call 3 different squares to se
 }
 
 function getBox(number) { //to identify the position of every box
-  return document.getElementById("s" + number).innerText;//it will tell us what it is in the box
+  return document.getElementById("s" + number).innerHTML;//it will tell us what it is in the box
 }
 
 function clearBox(number) {
-  document.getElementById("s" + number).innerText = "";
+  document.getElementById("s" + number).innerHTML = "";
 }
