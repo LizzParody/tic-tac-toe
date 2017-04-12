@@ -2,7 +2,7 @@ window.onload = init;
 
 function init() {
   var td = document.getElementsByTagName("td");
-  for(var i = 1; i < td.length; i++){
+  for(var i = 1; i <= td.length; i++){
     clearBox(i);
   }
   document.turn = "X"; //The turn of the player
