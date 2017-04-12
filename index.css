@@ -1,4 +1,4 @@
-.background{
+body {
   background-color: rgb(254,210,209);
   background-image: linear-gradient(90deg, transparent 50%, rgba(255,255,255,.5) 50%);
   background-size: 70px 70px;
@@ -15,13 +15,15 @@ h1{
   font-size: 20px;
 }
 
-table{
+table, td{
+  margin: auto;
+  border: 2px outset;
   margin-top: 30px;
   background-color: #FEE8E8;
   background-size: 10px 10px;
 }
 
-.square{
+td {
   width: 60px;
   height: 60px;
   text-align: center;
